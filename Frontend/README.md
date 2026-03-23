@@ -1,16 +1,66 @@
-# React + Vite
+# YT GenAI - Simple & Smart Interview Prep 🎯
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**AI-powered interview practice.** Upload resume → Get questions, answers & PDF resume.
 
-Currently, two official plugins are available:
+Easy to use. Fast results.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📱 How it Works (Simple Flow)
 
-## React Compiler
+```
+1️⃣ Login/Register
+     ↓
+2️⃣ Home → See your reports
+     ↓ New
+3️⃣ Upload Resume + Job Info
+     ↓ AI ✨
+4️⃣ Get Interview Report + PDF
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- Frontend: **React** + Vite
+- Backend: **Node.js** + Express + MongoDB
+- AI: **Google GenAI**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Start in 2 Minutes
+
+**Backend:**
+
+```bash
+cd Backend
+npm i
+# Edit .env (DB, API keys)
+npm run dev
+```
+
+_Port: 3000_
+
+**Frontend:**
+
+```bash
+cd Frontend
+npm i
+npm run dev
+```
+
+_Port: 5173_
+
+## 🔑 Key APIs
+
+| Action  | Endpoint                             |
+| ------- | ------------------------------------ |
+| Login   | POST /api/auth/login                 |
+| Reports | GET /api/interview/                  |
+| Create  | POST /api/interview/ (resume upload) |
+
+## .env (Backend)
+
+```
+DB_URI=your-mongo-url
+JWT_SECRET=secret
+GOOGLE_AI_API_KEY=your-key
+```
+
+**That's it!** Run → Login → Practice interviews.
+
+⭐ Enjoy your prep! 🚀
