@@ -1,8 +1,7 @@
 import axios from "axios"
 
-
 const api = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "https://geni-ai.onrender.com",
     withCredentials: true
 })
 
@@ -22,7 +21,6 @@ export const uploadResume = async (resumeFile) => {
         throw new Error(message)
     }
 }
-
 
 /**
  * @description Service to generate interview report based on user self description, resume and job description.
@@ -66,7 +64,7 @@ export const generateInterviewReport = async ({ jobDescription, selfDescription,
   if (resumeFile) formData.append("resume", resumeFile)
 
   try {
-const response = await api.post('/api/interview/', formData)
+    const response = await api.post('/api/interview/', formData)
     return response.data
   } catch (err) {
     console.error("GenerateReport API error", err)
@@ -74,6 +72,3 @@ const response = await api.post('/api/interview/', formData)
     throw new Error(message)
   }
 }
-
-
-
