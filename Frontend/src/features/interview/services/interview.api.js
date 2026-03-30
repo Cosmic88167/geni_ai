@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const api = axios.create({
-baseURL: "http://localhost:3000",
+baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000",
     withCredentials: true
 })
 
@@ -30,8 +30,8 @@ export const getAllInterviewReports = async () => {
     const response = await api.get('/api/interview')
     return response.data
   } catch (err) {
-    console.error("GetReports API error", err)
-    throw err
+        console.error("GetReports API error", err)
+        throw err
   }
 }
 
