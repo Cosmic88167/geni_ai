@@ -49,7 +49,7 @@ async function registerUserController(req, res) {
     res.cookie("token", token, {
         httpOnly: true,
         sameSite: "lax",
-        secure: false,
+        secure: process.env.NODE_ENV === 'production',
         path: "/"
     })
 
@@ -103,7 +103,7 @@ async function loginUserController(req, res) {
     res.cookie("token", token, {
         httpOnly: true,
         sameSite: "lax",
-        secure: false,
+        secure: process.env.NODE_ENV === 'production',
         path: "/"
     })
     res.status(200).json({
@@ -166,3 +166,4 @@ module.exports = {
     logoutUserController,
     getMeController
 }
+
