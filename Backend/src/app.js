@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "https://geni-ai-frontend.vercel.app", "https://*.vercel.app"],
+    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "https://geni-ai-frontend.vercel.app", "https://*.vercel.app", "https://*.netlify.app"],
     credentials: true
 }))
 
@@ -17,9 +17,4 @@ const interviewRouter = require("./routes/interview.routes")
 
 
 /* using all the routes here */
-app.use("/api/auth", authRouter)
-app.use("/api/interview", interviewRouter)
-
-
-
-module.exports = app
+app.use("/
