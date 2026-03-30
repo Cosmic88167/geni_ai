@@ -114,11 +114,18 @@ async function getAllInterviewReportsController(req, res) {
 async function generateResumePdfController(req, res) {
     const { interviewReportId } = req.params
 
-    const interviewReport = await interviewReportModel.findById(interviewReportId)
+    const interviewReport = await interviewReportModel.findById(interviewReportId).populate('user')
 
     if (!interviewReport) {
         return res.status(404).json({
             message: "Interview report not found."
+        })
+    }
+
+    // Check user ownership
+    if (interviewReport.user._id.toString() !== req.user.id) {
+        return res.status(403).json({
+            message: "Not authorized for this report."
         })
     }
 
@@ -132,6 +139,7 @@ async function generateResumePdfController(req, res) {
     })
 
     res.send(pdfBuffer)
+
 }
 
 module.exports = { generateInterViewReportController, getInterviewReportByIdController, getAllInterviewReportsController, generateResumePdfController }
