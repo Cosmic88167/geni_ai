@@ -47,7 +47,7 @@ export const getInterviewReportById = async (interviewId) => {
 
 export const generateResumePdf = async ({ interviewReportId }) => {
   try {
-    const response = await api.post(`/api/interview/resume/pdf/${interviewReportId}`, {}, {
+    const response = await api.get(`/api/interview/resume/pdf/${interviewReportId}`, {
       responseType: 'arraybuffer'
     })
     return response.data
@@ -56,6 +56,7 @@ export const generateResumePdf = async ({ interviewReportId }) => {
     throw err
   }
 }
+
 
 export const generateInterviewReport = async ({ jobDescription, selfDescription, resumeFile }) => {
   const formData = new FormData()
